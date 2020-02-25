@@ -8,12 +8,13 @@ import {
   TouchableHighlight
 } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import ScannedCodes from "../components/ScannedCodes";
 
 export default function ScanScreen() {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const [modalVisible, setModalVisible] = useState(true);
-  const [scannedCodes, setScannedCodes] = useState()
+  const [scannedCodes, setScannedCodes] = useState([]);
 
   // useEffetct(()=>{}, []) without values between the squared brackets will make sure this code is triggered when the component is loaded
   useEffect(() => {
@@ -26,6 +27,17 @@ export default function ScanScreen() {
   //when the code was scanned successfully, give a message with the url
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
+
+    let _scannedCodes = [...scannedCodes]
+    _scannedCodes.push({
+      type,
+      data
+    })
+
+    setScannedCodes(_scannedCodes)
+    console.log('test')
+    console.log(JSON.stringify(scannedCodes));
+
     alert(`Bar code with type ${type} and data ${data} has been scanned!`);
   };
 
@@ -76,12 +88,15 @@ export default function ScanScreen() {
         )}
       </Modal>
 
+      <ScannedCodes
+      codes={scannedCodes}></ScannedCodes>
+
       <Button
-          title={"Open camera"}
-          onPress={() => {
-            setModalVisible(true);
-          }}
-        ></Button>
+        title={"Open camera"}
+        onPress={() => {
+          setModalVisible(true);
+        }}
+      ></Button>
     </View>
   );
 }
