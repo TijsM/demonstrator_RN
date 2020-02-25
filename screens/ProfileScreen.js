@@ -1,16 +1,10 @@
 import * as React from 'react';
 import {StyleSheet, Text} from 'react-native';
+import {WebView} from 'react-native-webview';
 
 export default function HomeScreen() {
   return (
-    <Text>
-
-        this is the profile screen
-    </Text>
+    <WebView source={{uri: 'https://demonstratorreact.netlify.com/'}}/>
   );
 }
 
-
-const styles = StyleSheet.create({
-  
-});
