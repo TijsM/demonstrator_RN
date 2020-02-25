@@ -39,6 +39,9 @@ export default function ScanScreen() {
     console.log(JSON.stringify(scannedCodes));
 
     alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+
+    setModalVisible(false)
+    setScanned(false)
   };
 
   //checking permission
