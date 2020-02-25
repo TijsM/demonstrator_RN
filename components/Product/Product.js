@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     width: "90%",
     marginLeft: "5%",
-    borderRadius: "16px",
-    marginTop: "25px"
+    borderRadius: 16,
+    marginTop: 25
   },
   productImage: {
     width: "80%",
@@ -43,15 +43,14 @@ const styles = StyleSheet.create({
   },
   alternatives:{
     backgroundColor: '#rgba(121, 208, 241, 0.2)',
-    display: 'inline-block',
     width: 160, 
-    padding: '10px',
-    margin: '10px',
-    borderRadius: '5px'
+    padding: 10,
+    margin: 10,
+    borderRadius: 5
   }, 
   alternativesText:{
     color: '#79D0F1',
-    fontSize: '1,2em',
+    fontSize: 16,
     width: '100%',
     textAlign: 'center'
   }

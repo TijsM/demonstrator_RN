@@ -6,7 +6,6 @@ import { ScrollView } from "react-native-gesture-handler";
 export default function HomeScreen() {
   return (
     <ScrollView>
-
       <Product 
         productName="test product"
         imageUri="https://images.unsplash.com/photo-1532109088195-681b71de5705?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=582&q=80"
