@@ -9,12 +9,15 @@ import {
 } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import ScannedCodes from "../components/ScannedCodes";
+import axios from '../axios';
+
 
 export default function ScanScreen() {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const [modalVisible, setModalVisible] = useState(true);
   const [scannedCodes, setScannedCodes] = useState([]);
+
 
   // useEffetct(()=>{}, []) without values between the squared brackets will make sure this code is triggered when the component is loaded
   useEffect(() => {
@@ -24,6 +27,9 @@ export default function ScanScreen() {
     })();
   }, []);
 
+
+
+
   //when the code was scanned successfully, give a message with the url
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
@@ -32,6 +38,12 @@ export default function ScanScreen() {
     _scannedCodes.push({
       type,
       data
+    })
+
+    axios.post('/scans.json',{
+      date: new Date(),
+      data,
+      type
     })
 
     setScannedCodes(_scannedCodes)

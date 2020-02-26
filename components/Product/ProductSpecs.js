@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 5,
     margin: 5,
-    textAlign: 'center',
     
   },
   specs: {
