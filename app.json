@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Tab Navigation Template",
-    "slug": "demonstrator_RN",
+    "name": "demonstrator react native",
+    "slug": "demo_rn",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -26,6 +26,12 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "android": {
+      "package": "bothrs.com.demonstrator_RN",
+      "versionCode": 1
+    },
+    "description": "react native project with tab navigation\nhome screen - react native components\nqr scanner = expo scanner\nprofile = webview from react project",
+    "githubUrl": "https://github.com/TijsM/demonstrator_RN"
   }
 }

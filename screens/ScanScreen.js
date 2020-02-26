@@ -35,10 +35,6 @@ export default function ScanScreen() {
     })
 
     setScannedCodes(_scannedCodes)
-    console.log('test')
-    console.log(JSON.stringify(scannedCodes));
-
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
 
     setModalVisible(false)
     setScanned(false)

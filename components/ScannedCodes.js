@@ -1,17 +1,18 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default function ScannedCodes(props) {
   console.log(props.codes);
   let codeCards = props.codes.map(scan => {
     return (
-      <View style={styles.card}>
+      <View style={styles.card} key={Math.random()}>
         <Text style={styles.type} >type: {scan.type}</Text>
         <Text style={styles.data}>link: {scan.data}</Text>
       </View>
     );
   });
-  return <View>{codeCards}</View>;
+  return <ScrollView>{codeCards}</ScrollView>;
 }
 
 const styles = StyleSheet.create({

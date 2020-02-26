@@ -27,16 +27,18 @@ const styles = StyleSheet.create({
     marginVertical: 25
   },
   score: {
-    width: "10%",
+    width: "15%",
     borderWidth: 1,
     borderColor: "#8F92A1",
     borderRadius: 5,
     padding: 5,
-    margin: 5
+    margin: 5,
+    textAlign: 'center',
+    
   },
   specs: {
     marginHorizontal: 10,
-    width: "75%"
+    width: "65%"
   },
   kcalAndPointsContainer: {
     flex: 1,
