@@ -3,8 +3,8 @@ import { StyleSheet, View, TextInput, Button, Text } from "react-native";
 import consts from "../../constants/ApiKeys";
 
 const LoginScreen = props => {
-  const [email, setEmail] = React.useState("email");
-  const [password, setPassword] = React.useState("password");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
 
   const login = async () => {
     console.log("login clicked");
@@ -29,7 +29,7 @@ const LoginScreen = props => {
 
     console.log(response);
 
-    if (response) {
+    if (response.ok) {
       console.log("login successful");
     } else {
       console.log("something went wrong");
@@ -37,15 +37,15 @@ const LoginScreen = props => {
   };
 
   return (
-    <View>
-      <Text>login:</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>login</Text>
       <TextInput
-        style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+        style={styles.input}
         onChangeText={text => setEmail(text)}
         value={email}
       />
       <TextInput
-        style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+       style={styles.input}
         onChangeText={text => setPassword(text)}
         value={password}
       />
@@ -53,6 +53,29 @@ const LoginScreen = props => {
     </View>
   );
 };
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    container:{
+        width: '90%',
+        backgroundColor :'#ffffff',
+        padding: 35,
+        marginTop: 50,
+        marginLeft: '5%',
+        borderRadius: 15
+    }, 
+    title:{
+        fontSize: 25,
+        marginBottom: 20
+    },
+    input:{
+        height: 30,
+        width: '75%',
+        marginLeft: '12.5%',
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: '#b0b0b0',
+        margin: 5,
+        paddingLeft: 10
+    }
+});
 
 export default LoginScreen;
