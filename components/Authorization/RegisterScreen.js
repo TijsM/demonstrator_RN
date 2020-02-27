@@ -6,6 +6,9 @@ const RegisterScreen = props => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
+  const [registerSuccess, setRegisterSuccess] = useState(false)
+
+
   let content = <Text></Text>;
 
   const register = async () => {
@@ -33,13 +36,14 @@ const RegisterScreen = props => {
 
     if (response.ok) {
       console.log('registered')
+      setRegisterSuccess(true)
     } else {
       console.log("something went wrong");
     }
   };
 
-  return (
-    <View style={styles.container}>
+  let form = (
+    <View>
       <Text style={styles.title}>register</Text>
       <TextInput
         style={styles.input}
@@ -52,6 +56,15 @@ const RegisterScreen = props => {
         value={password}
       />
       <Button title="register" onPress={() => register()}></Button>
+    </View>
+  )
+
+  let message = <Text>you are registered in firebase</Text>
+
+  return (
+    <View style={styles.container}>
+      {form}
+      {registerSuccess?message:null}
     </View>
   );
 };

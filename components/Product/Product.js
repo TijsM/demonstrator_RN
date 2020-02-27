@@ -31,11 +31,12 @@ const styles = StyleSheet.create({
     marginTop: 25
   },
   productImage: {
-    width: "80%",
+    width: "90%",
     height: 150,
     margin: "auto",
     borderRadius: 20,
-    marginTop: 20
+    marginTop: 20,
+    marginLeft: '5%'
   },
   description:{
     margin: 20,

@@ -3,15 +3,16 @@ import { StyleSheet, View, TextInput, Button, Text } from "react-native";
 
 import LoginScreen from '../components/Authorization/LoginScreen';
 import RegisterScreen from '../components/Authorization/RegisterScreen';
+import { ScrollView } from "react-native-gesture-handler";
 
 
 const AuthScreen = props => {
 
   return (
-    <View>
+    <ScrollView>
       <LoginScreen></LoginScreen>
       <RegisterScreen></RegisterScreen>
-    </View>
+    </ScrollView>
   );
 };
 
