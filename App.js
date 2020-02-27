@@ -8,9 +8,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import BottomTabNavigator from "./navigation/BottomTabNavigator";
 import useLinking from "./navigation/useLinking";
+import * as firebase from 'firebase'
+import ApiKeys from './constants/ApiKeys'
 
-import * as firebase from "firebase";
-import * as consts from "./secrets";
 
 const Stack = createStackNavigator();
 
@@ -41,6 +41,10 @@ export default function App(props) {
         setLoadingComplete(true);
         SplashScreen.hide();
       }
+    }
+
+    if(!firebase.apps.length){
+      firebase.initializeApp(ApiKeys.firebaseConfig)
     }
 
     loadResourcesAndDataAsync();

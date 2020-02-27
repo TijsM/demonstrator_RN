@@ -9,14 +9,12 @@ import {
 } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import ScannedCodes from "../components/ScannedCodes";
-import axios from '../axios';
-
+import axios from "../axios";
 
 export default function ScanScreen() {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
-  const [modalVisible, setModalVisible] = useState(true);
-  const [scannedCodes, setScannedCodes] = useState([]);
+  const [modalVisible, setModalVisible] = useState(true);  const [scannedCodes, setScannedCodes] = useState([]);
 
 
   // useEffetct(()=>{}, []) without values between the squared brackets will make sure this code is triggered when the component is loaded
@@ -27,29 +25,29 @@ export default function ScanScreen() {
     })();
   }, []);
 
-
-
+ 
 
   //when the code was scanned successfully, give a message with the url
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
 
-    let _scannedCodes = [...scannedCodes]
+    let _scannedCodes = [...scannedCodes];
     _scannedCodes.push({
+      date: new Date().toISOString(),
       type,
       data
-    })
+    });
 
-    axios.post('/scans.json',{
-      date: new Date(),
+    axios.post("/scans.json", {
+      date: new Date().toISOString(),
       data,
       type
-    })
+    });
 
-    setScannedCodes(_scannedCodes)
+    setScannedCodes(_scannedCodes);
 
-    setModalVisible(false)
-    setScanned(false)
+    setModalVisible(false);
+    setScanned(false);
   };
 
   //checking permission
@@ -99,8 +97,7 @@ export default function ScanScreen() {
         )}
       </Modal>
 
-      <ScannedCodes
-      codes={scannedCodes}></ScannedCodes>
+      <ScannedCodes codes={scannedCodes}></ScannedCodes>
 
       <Button
         title={"Open camera"}
