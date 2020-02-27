@@ -14,7 +14,8 @@ import axios from "../axios";
 export default function ScanScreen() {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
-  const [modalVisible, setModalVisible] = useState(true);  const [scannedCodes, setScannedCodes] = useState([]);
+  const [modalVisible, setModalVisible] = useState(true);  
+  const [scannedCodes, setScannedCodes] = useState([]);
 
 
   // useEffetct(()=>{}, []) without values between the squared brackets will make sure this code is triggered when the component is loaded
@@ -28,7 +29,7 @@ export default function ScanScreen() {
  
 
   //when the code was scanned successfully, give a message with the url
-  const handleBarCodeScanned = ({ type, data }) => {
+  const handleBarCodeScanned = async({ type, data }) => {
     setScanned(true);
 
     let _scannedCodes = [...scannedCodes];
@@ -44,11 +45,23 @@ export default function ScanScreen() {
       type
     });
 
+    await getNutritionInfo(data);
     setScannedCodes(_scannedCodes);
 
     setModalVisible(false);
     setScanned(false);
   };
+
+  const getNutritionInfo = async(data) => {
+    const res = await axios.post(`https://world.openfoodfacts.org/api/v0/product/${data}.json`);
+
+    console.log(res.data.product)
+    console.log('---------------')
+    console.log(res.data.product.nutriscore_grade)
+  }
+
+
+
 
   //checking permission
   if (hasPermission === null) {

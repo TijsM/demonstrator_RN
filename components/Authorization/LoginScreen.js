@@ -41,12 +41,15 @@ const LoginScreen = props => {
   let form = (
     <View>
       <Text style={styles.title}>login</Text>
-      <TextInput
+      <TextInput  
+        placeholder="email"
         style={styles.input}
         onChangeText={text => setEmail(text)}
         value={email}
       />
       <TextInput
+        placeholder='password'
+        secureTextEntry={true}
         style={styles.input}
         onChangeText={text => setPassword(text)}
         value={password}
