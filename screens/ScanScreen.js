@@ -38,7 +38,7 @@ export default function ScanScreen() {
       data
     });
 
-    axios.post("/scans.json", {
+    axios.post("https://demonstratorrn.firebaseio.com/scans.json", {
       date: new Date().toISOString(),
       data,
       type

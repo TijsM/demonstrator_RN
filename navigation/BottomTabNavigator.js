@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import ScanScreen from '../screens/ScanScreen';
+import AuthScreen from '../screens/AuthScreen'
 import ProfileScreen from '../screens/ProfileScreen';
 
 const BottomTab = createBottomTabNavigator();
@@ -19,7 +20,7 @@ export default function BottomTabNavigator({ navigation, route }) {
     <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
       <BottomTab.Screen
         name="Home"
-        component={HomeScreen}
+        component={HomeScreen}  
         options={{
           title: 'Home',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />,
@@ -27,7 +28,7 @@ export default function BottomTabNavigator({ navigation, route }) {
       />
       <BottomTab.Screen
         name="Scan"
-        component={ScanScreen}
+        component={ScanScreen} 
         options={{
           title: 'Scan',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-camera" />,
@@ -39,6 +40,14 @@ export default function BottomTabNavigator({ navigation, route }) {
         options={{
           title: 'Profile',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-person" />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Authentication"
+        component={AuthScreen}
+        options={{
+          title: 'login',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-key" />,
         }}
       />
     </BottomTab.Navigator>
