@@ -48,18 +48,6 @@ export default function App(props) {
     loadResourcesAndDataAsync();
   }, []);
 
-  // console.log(consts.FIREBASE_API);
-
-  // var config = {
-  //   apiKey: consts.FIREBASE_API,
-  //   authDomain: "demonstratorrn.firebaseapp.com",
-  //   databaseURL: "https://demonstratorrn.firebaseio.com",
-  //   storageBucket: "bucket.appspot.com"
-  // };
-  // firebase.initializeApp(config);
-
-  // // Get a reference to the database service
-  // var database = firebase.database();
 
   if (!isLoadingComplete && !props.skipLoadingScreen) {
     return null;
