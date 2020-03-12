@@ -9,7 +9,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import BottomTabNavigator from "./navigation/BottomTabNavigator";
 import useLinking from "./navigation/useLinking";
 import * as firebase from 'firebase'
-import ApiKeys from './constants/ApiKeys'
+
 
 
 const Stack = createStackNavigator();
@@ -43,9 +43,7 @@ export default function App(props) {
       }
     }
 
-    if(!firebase.apps.length){
-      firebase.initializeApp(ApiKeys.firebaseConfig)
-    }
+
 
     loadResourcesAndDataAsync();
   }, []);
