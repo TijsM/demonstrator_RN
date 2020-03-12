@@ -3,8 +3,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import ScanScreen from '../screens/ScanScreen';
-import AuthScreen from '../screens/AuthScreen'
-import ProfileScreen from '../screens/ProfileScreen';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
@@ -34,22 +32,6 @@ export default function BottomTabNavigator({ navigation, route }) {
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-camera" />,
         }}
       />
-      <BottomTab.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={{
-          title: 'Profile',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-person" />,
-        }}
-      />
-      <BottomTab.Screen
-        name="Authentication"
-        component={AuthScreen}
-        options={{
-          title: 'login',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-key" />,
-        }}
-      />
     </BottomTab.Navigator>
   );
 }
@@ -62,7 +44,5 @@ function getHeaderTitle(route) {
       return 'FoodCoach';
     case 'Chat':
       return 'Links to learn more';
-    case 'Profile':
-      return 'Profile page'
   }
 }
